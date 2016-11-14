@@ -1,11 +1,17 @@
 package domain;
 
-import java.util.List;
+import java.util.LinkedList;
+
 
 public class Sentence {
-    protected List<Word> words;
-    protected List<Punctuation> punktuations;
-    protected List<Phone> phones;
-    protected List<Email> emails;
+    protected LinkedList<LinkedList> elements;
+    //protected List<Punctuation> punktuations;
+    //protected List<Phone> phones;
+    //protected List<Email> emails;
     
+    public void addElement(LinkedList<LinkedList> element){
+        elements.add(element);
+        
+    }
+    //разборка на элементы по позиции
 }

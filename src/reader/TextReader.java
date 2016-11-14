@@ -23,6 +23,8 @@ public class TextReader {
         while((c=reader.read())!=-1){
              
             System.out.print((char)c);
+            
+            
         } 
     }
     catch(IOException ex){

@@ -2,22 +2,18 @@ package domain;
 
 import java.util.LinkedList;
 
-public class Word {
-    public LinkedList<Symbol> symbols;
-    protected String wordStr;
+public class Word extends SymbolParser{
 
-    public Word(String wordStr) {
-        this.wordStr=wordStr;
-        parse();
+    public Word(String inStr) {
+        super(inStr);
     }
-    
+}
+   /* @Override
     protected void parse() {
-        symbols=new LinkedList<>();
-        for (int i=0; i<wordStr.length();i++) {
-            symbols.add(new Symbol(wordStr.charAt(i)));
+        elements=new LinkedList<>();
+        for (int i=0; i<inStr.length();i++) {
+            elements.add(new Symbol(inStr.charAt(i)));
         }
         
-    }
-    
-    
-}
+    }*/
+ 

@@ -1,5 +1,10 @@
 package domain;
 
-public class Punctuation {
+public class Punctuation extends SymbolParser{
+
+    public Punctuation(String inStr) {
+        super(inStr);
+    }
+
 
 }

@@ -1,32 +1,26 @@
 package domain;
 
 import java.util.LinkedList;
-import java.util.List;
 
 
-public class Sentence {
-    protected LinkedList<List> elements;
-    protected String sentStr;
+public class Sentence extends SymbolParser {
+    public LinkedList<SymbolParser> elements;
+    protected static String delimiters="\\s+";
     
-    public Sentence(String sentStr) {
-        this.sentStr=sentStr;
-        parse();
+    public Sentence(String inStr) {
+        super(inStr);
     }
-    
+
+    @Override
     protected void parse() {
         elements=new LinkedList<>();
-        //for (int i=0; i<wordStr.length();i++) {
-        //    symbols.add(new Symbol(wordStr.charAt(i)));
-        //}
-        String[] sents=sentStr.split("\\s*(\\s|?|!|\\.)\\s*");
+        String[] sents=inStr.split(delimiters);
         
-        //for (int i=0; i<sents.length();i++) {
         for (String s:sents){
             elements.add(new Word(s));
+            //System.out.println(s);
         }
         
     }
-
-
-    //разборка на элементы по позиции
+    
 }

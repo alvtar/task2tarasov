@@ -2,11 +2,14 @@ package domain;
 
 import java.util.LinkedList;
 
-public abstract class Parser {
-    public LinkedList<Object> elements;
+public abstract class SymbolParser {
+    public LinkedList<Symbol> elements;
     protected String inStr;
     
-    public Parser(String inStr) {
+    public SymbolParser() {
+    }
+    
+    public SymbolParser(String inStr) {
         this.inStr=inStr;
         parse();
     }

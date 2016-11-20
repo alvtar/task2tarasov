@@ -23,4 +23,10 @@ public class Sentence extends SymbolParser {
         
     }
     
+   ////@Override
+   // public LinkedList<SymbolParser> getElements() {
+   //     return elements;
+//
+   // }
+    
 }

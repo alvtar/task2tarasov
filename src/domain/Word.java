@@ -8,7 +8,8 @@ public class Word extends SymbolParser{
    
    // @Override
     public void modyfyWord (int wordMinLenght, int wordMaxLenght){
-        if (elements.element().isConsonant() & elements.size()>=wordMinLenght & elements.size()<=wordMaxLenght) { elements.clear();}
+        if (elements.element().isConsonant() & elements.size()>=wordMinLenght & 
+                elements.size()<=wordMaxLenght) { elements.clear();}
     }
 }
 

@@ -2,16 +2,9 @@ package domain;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-
-/// метод большая/малая буква - в классе Символ
-/// метод длины - в слове 
-
-
-
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import runner.TestStart;
 
 public class Text extends SymbolParser{
@@ -48,10 +41,11 @@ public class Text extends SymbolParser{
                 //System.out.print(wordMinLenght);
                 pars.modyfyWord(TestStart.wordMinLenght,TestStart.wordMaxLenght);
                 //pars.toString();
+                System.out.println(pars.toString());
 
             }
             
-            elements.toString();
+            //elements.toString();
             
     }
         

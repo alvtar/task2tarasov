@@ -53,9 +53,9 @@ public class Sentence extends SymbolParser {
          String s=new String();
          for (SymbolParser pars:elements) {
             // System.out.println(pars.toString()); 
-             s=s+pars.toString()+">>>";
+             s=s+pars.toString();//+">>>";
          }
-        System.out.println("==Sentence==");
+        //System.out.println("==Sentence==");
         return s;
     }
     

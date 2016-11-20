@@ -25,10 +25,11 @@ public abstract class SymbolParser {
     public String toString() {
          String s=new String();
          for (Symbol pars:elements) {
-             System.out.print(pars.toString()); 
-             //s=s+pars.toString();
+             //System.out.print(pars.toString()); 
+             s=s+pars.toString();
          }
         //System.out.println("=SP=");
+         s=s+"\n";
         return s;
     }
     

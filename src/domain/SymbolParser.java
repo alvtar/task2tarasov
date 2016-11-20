@@ -2,6 +2,7 @@ package domain;
 
 import java.util.LinkedList;
 
+
 public abstract class SymbolParser {
     protected LinkedList<Symbol> elements;
     protected String inStr;
@@ -20,17 +21,14 @@ public abstract class SymbolParser {
 
     public void modyfyWord (int wordMinLenght,int wordMaxLenght) {  };
 
-    
     @Override
     public String toString() {
          String s=new String();
          for (Symbol pars:elements) {
-             //System.out.print(pars.toString()); 
-             s=s+pars.toString();
+             s+=pars.toString();
          }
-        //System.out.println("=SP=");
          s=s+"\n";
-        return s;
+         return s;
     }
     
 }

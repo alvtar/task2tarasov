@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 
 public abstract class SymbolParser {

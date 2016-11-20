@@ -1,5 +1,8 @@
 package domain;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /// метод большая/малая буква - в классе Символ
 /// метод длины - в слове 
 
@@ -8,10 +11,11 @@ package domain;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.lang.reflect.*;
+
+import runner.TestStart;
 
 public class Text extends SymbolParser{
-    public LinkedList<SymbolParser> elements;
+    protected LinkedList<SymbolParser> elements;
     
     protected static String delimEmails="\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}";
     protected static String delimPhones="(8\\(\\d\\d\\d\\)\\d\\d\\d\\-\\d\\d\\-\\d\\d)";
@@ -36,39 +40,25 @@ public class Text extends SymbolParser{
         outStr=new StringBuilder(inStr);
         
         outStr=filter("domain.Sentence",outStr,delimSentencies);
-        System.out.println("=======");
         outStr=filter("domain.Phone",outStr,delimPhones);
-        
-        System.out.println("=======");
         outStr=filter("domain.Email",outStr,delimEmails);
-        
-        
-       // System.out.println(outStr);
-        //System.out.println("=======");
-        //outStr=filter("domain.Email",outStr,delimEmails);
-        //System.out.println(outStr);
-        //System.out.println("=======");
-       // System.out.println(outStr);
-       // outStr=filter("domain.Phone",outStr,delimPhones);
-        //System.out.println(outStr);Phone",outStr,delimPhones));
-       // System.out.println("=======");
-        //System.out.println(outStr);
-        
-        
-        System.out.println("=======");
-        //System.out.println(outStr);
-        
-        //outStr=filter("domain.Punctuation",outStr,delimPunctuation);
-        
-        //System.out.println("=======");
-        //System.out.println(outStr);
-        System.out.println("=======%%%%");
-        
+
+            for (SymbolParser pars:elements) {
+
+                //System.out.print(wordMinLenght);
+                pars.modyfyWord(TestStart.wordMinLenght,TestStart.wordMaxLenght);
+                //pars.toString();
+
+            }
+            
+            elements.toString();
+            
+    }
         
        /* for (SymbolParser pars:elements) {
             //System.out.println(pars.show()); 
             LinkedList<Symbol> subPars = pars.getElements();
-            
+            . 
             if (subPars.getClass().equals(Sentence.class)) {
                 
                 for (Symbol sp:subPars) {
@@ -87,20 +77,7 @@ public class Text extends SymbolParser{
             
             }
             } */
-       //System.out.println();
-
-        
-        
-        
-        /*Matcher matcher = Pattern.compile(delimSentencies).matcher(inStr);
-        while (matcher.find())
-        {
-            System.out.println(matcher.group());
-            elements.add(new Sentence(matcher.group()));
-        }
-        matcher.replaceAll("");*/
-        
-    }
+  
     
  
    
@@ -112,7 +89,6 @@ public class Text extends SymbolParser{
         try {
             c = (Class<SymbolParser>) Class.forName(className);
         } catch (ClassNotFoundException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         @SuppressWarnings("rawtypes")
@@ -123,19 +99,15 @@ public class Text extends SymbolParser{
         {
             try {
                 elements.add((SymbolParser) construct[0].newInstance((matcher.group())));
-                //System.out.println(matcher.group().toString());
-               // System.out.println("-------------------");
-               //matcher.replaceAll("");
                 
             } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
                     | InvocationTargetException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
 
         }
-        //outStr=new StringBuilder(matcher.replaceAll(""));
-        //System.out.println(outStr);
+
         return outStr;
     }
     

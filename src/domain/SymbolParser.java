@@ -14,25 +14,22 @@ public abstract class SymbolParser {
     protected void parse() {
         elements=new LinkedList<>();
         for (int i=0; i<inStr.length();i++) {
-            //char c=inStr.charAt(i);
-            //String s=new String(c);
-            //if (c)
             elements.add(new Symbol(inStr.charAt(i)));
         }
     }
-    
-    public LinkedList<Symbol> getElements() {
-        return elements;
 
-    }
+    public void modyfyWord (int wordMinLenght,int wordMaxLenght) {  };
+
     
     @Override
     public String toString() {
-         //for (Symbol pars:elements) {
-             //System.out.print(pars.toString()); 
-        //}
-        //System.out.println();
-        return elements.toString();
+         String s=new String();
+         for (Symbol pars:elements) {
+             System.out.print(pars.toString()); 
+             //s=s+pars.toString();
+         }
+        //System.out.println("=SP=");
+        return s;
     }
     
 }

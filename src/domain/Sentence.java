@@ -16,7 +16,8 @@ public class Sentence extends SymbolParser {
     protected void parse() {
         elements=new LinkedList<>();
         
-        String[] punkt=inStr.replaceAll(delimPunctuation,"").split(delimPunctuation);
+        String temp=inStr;//.replaceAll(String.format("%s|\n|\r", System.getProperty("line.separator"))," ");
+        String[] punkt=temp.replaceAll(delimPunctuation,"").split(delimPunctuation);
         //String[] punkt2=punkt.toString().split("\r|\n");
         
         for (String p:punkt){
@@ -25,13 +26,15 @@ public class Sentence extends SymbolParser {
             //s.
         }
         
-        StringBuilder outStr=new StringBuilder(inStr);//.replaceAll("[^a-zA-Zà-ÿÀ-ß0-9]", " ");//(matcher.replaceAll(""))
+        StringBuilder outStr=new StringBuilder((inStr));//.toString().replaceAll(String.format("%s+|\n|\r", System.getProperty("line.separator")), " "));//(matcher.replaceAll(""))
         
         String[] sents=outStr.toString().split("[^a-zA-Zà-ÿÀ-ß0-9]");//|\\r|\\n+");
         
         for (String s:sents){
-            elements.add(new Word(s));
-            System.out.println(s);
+            if (s.isEmpty()==false) {
+                elements.add(new Word(s));
+                System.out.println(s);
+            }
             //s.
         }
         
